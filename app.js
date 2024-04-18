@@ -8,7 +8,7 @@ const STORAGE_KEY = "period-tracker";
 
 renderPastPeriods();
 
-clearPastPeriodsEl.addEventListener("click", (event) => {
+clearPastPeriodsEl.addEventListener("click", () => {
     clearPastPeriods();
     renderPastPeriods();
 })
@@ -56,12 +56,12 @@ function getAllStoredPeriods() {
 
 function renderPastPeriods() {
     const periods = getAllStoredPeriods();
+    pastPeriodContainer.innerHTML = "";
 
     if (periods.length === 0) {
         return;
     }
 
-    pastPeriodContainer.innerHTML = "";
     const pastPeriodHeader = document.createElement("h2");
     pastPeriodHeader.textContent = "Past periods";
     const pastPeriodList = document.createElement("ul");
